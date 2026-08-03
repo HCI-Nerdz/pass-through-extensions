@@ -57,7 +57,7 @@ Prefer the WPF app + broker.
 == PowerToys / Microsoft
 
 This is a natural PowerToys File Explorer add-on: configurable meta-suffix list + open peel (icons later).
-See the issue filed against `microsoft/PowerToys` from this work.
+Filed: link:https://github.com/microsoft/PowerToys/issues/49631[microsoft/PowerToys#49631].
 
 Feedback Hub (Win + F) remains the right place for a *first-class OS passthru association kind* (open + icon + preview + common dialogs).
 
