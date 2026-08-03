@@ -1,0 +1,68 @@
+= pass-through-extensions
+
+Windows helper for *pass-through extensions* — meta-suffixes like `.example` and `.template` that should open as the inner file type.
+
+Part of link:https://github.com/HCI-Nerdz[HCI Nerdz].
+
+* Essay: link:https://hci-nerdz.github.io/blog/when-example-files-lose-their-type/[When example files lose their type]
+* Docs: link:https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html[Pass-through extensions]
+* Demo: link:https://hci-nerdz.github.io/demos/pass-through-extensions/[Pass-through peel]
+
+== Problem
+
+Explorer resolves type from the *last* extension segment.
+`appsettings.json.example` becomes an inert `.example` file instead of JSON with a badge.
+
+Stock Win32 associations have no first-class *passthru* / peel-to-stem kind.
+
+== What this tool does
+
+. Registers an allow-list of meta-suffixes for the *current user* (`HKCU\Software\Classes`)
+. Points them at a tiny open broker
+. On double-click, the broker peels allow-listed badges, looks up the inner association (`AssocQueryString`), and launches that command with the *real* path
+
+Suffixes (default):
+
+`example`, `template`, `tmpl`, `sample`, `dist`, `default`, `skeleton`, `stub`, `orig`, `bak`, `old`
+
+Compression tails (`.gz`, …) are *not* peeled.
+
+== Install (current user, no admin)
+
+[source,powershell]
+----
+cd src
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\Install-PassThrough.ps1
+----
+
+Uninstall:
+
+[source,powershell]
+----
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\Uninstall-PassThrough.ps1
+----
+
+Scripts copy into `%LOCALAPPDATA%\HCI-Nerdz\pass-through-extensions`.
+
+== Limits
+
+* Icon inheritance still needs a real shell extension or OS support — we use a generic document icon
+* Apps that refuse `*.json.example` in their own Open dialogs are a separate honesty bug
+* If no inner association exists, the broker falls back to Notepad
+* User-level mappings override machine defaults for those meta-suffixes while installed
+
+== Ask Microsoft
+
+Feedback Hub (Win + F) → *Apps* → *File Explorer* (or *Developer Platform*):
+
+____
+Add a pass-through / meta-suffix association kind.
+ProgIDs for `.example`, `.template`, `.dist`, etc. should peel and resolve open, edit, and DefaultIcon from the remaining stem, while passing the real path to the handler.
+`appsettings.json.example` must open as JSON, not as an unknown EXAMPLE file.
+____
+
+Link this repo and the HCI Nerdz docs from the report so the allow-list and peel rules are concrete.
+
+== License
+
+MIT — see link:LICENSE[LICENSE].

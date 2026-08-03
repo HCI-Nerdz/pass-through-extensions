@@ -1,0 +1,8 @@
+= 2026-08-02 — Initial helper
+
+First ship of the current-user Windows broker for pass-through extensions.
+
+* `PassThrough.Common.ps1` — allow-list peel + AssocQueryString lookup
+* `Open-PassThrough.ps1` — Explorer open verb
+* `Install-PassThrough.ps1` / `Uninstall-PassThrough.ps1` — HKCU ProgID + meta-suffix maps
+* README includes Feedback Hub wording for a real OS passthru kind

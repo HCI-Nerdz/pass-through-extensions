@@ -1,0 +1,12 @@
+*
+!.gitignore
+!README.adoc
+!CHANGELOG.adoc
+!AGENTS.md
+!LICENSE
+!changelog-details/
+!changelog-details/**
+!src/
+!src/**
+!.github/
+!.github/**
