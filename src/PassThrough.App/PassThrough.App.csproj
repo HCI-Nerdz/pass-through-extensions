@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>PassThrough.App</RootNamespace>
+    <AssemblyName>PassThrough.App</AssemblyName>
+    <ApplicationTitle>Pass-through Extensions</ApplicationTitle>
+    <Product>Pass-through Extensions</Product>
+    <Company>HCI Nerdz</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PassThrough.Core\PassThrough.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Ship broker beside the settings app so Apply can deploy it -->
+  <Target Name="CopyBrokerToOutput" AfterTargets="Build">
+    <MSBuild Projects="..\PassThrough.Broker\PassThrough.Broker.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration);Platform=$(Platform)" />
+    <PropertyGroup>
+      <_BrokerOut>..\PassThrough.Broker\bin\$(Configuration)\net9.0-windows\</_BrokerOut>
+    </PropertyGroup>
+    <ItemGroup>
+      <_BrokerCopy Include="$(_BrokerOut)**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_BrokerCopy)"
+          DestinationFolder="$(TargetDir)"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

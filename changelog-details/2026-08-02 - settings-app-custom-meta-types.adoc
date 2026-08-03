@@ -1,0 +1,10 @@
+= 2026-08-02 — Settings app and custom meta-types
+
+Replaced the PowerShell-only flow with a .NET 9 app users can actually configure.
+
+* `PassThrough.App` — WPF UI: toggle built-ins (including `.old`), add/remove custom meta-types, Apply / Remove for Explorer
+* `PassThrough.Broker` — open verb peels active suffixes from `settings.json`
+* `PassThrough.Core` — shared peel, settings, HKCU association registrar
+* Unit tests for peel + settings merge
+* PowerShell installer moved to `legacy/`
+* README points PowerToys / Feedback Hub at the configurable design

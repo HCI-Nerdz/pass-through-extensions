@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-08-02 — Settings app and custom meta-types
+
+* link:changelog-details/2026-08-02%20-%20settings-app-custom-meta-types.adoc[Details]
+
 == 2026-08-02 — Initial helper
 
 * link:changelog-details/2026-08-02%20-%20initial-helper.adoc[Details]

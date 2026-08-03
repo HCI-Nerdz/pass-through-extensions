@@ -1,0 +1,13 @@
+﻿<Application x:Class="PassThrough.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <SolidColorBrush x:Key="InkBrush" Color="#0E1218"/>
+    <SolidColorBrush x:Key="PaperBrush" Color="#E8E4D9"/>
+    <SolidColorBrush x:Key="AmberBrush" Color="#E8A54B"/>
+    <SolidColorBrush x:Key="TealBrush" Color="#3D9B8F"/>
+    <SolidColorBrush x:Key="MutedBrush" Color="#5C6570"/>
+    <SolidColorBrush x:Key="LineBrush" Color="#C9C3B5"/>
+  </Application.Resources>
+</Application>

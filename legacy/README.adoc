@@ -1,0 +1,5 @@
+# Legacy PowerShell installer
+
+Superseded by `PassThrough.App` + `PassThrough.Broker` in `src/`.
+
+These scripts remain for reference and emergency use. They do **not** read the app's `settings.json` custom suffix list.

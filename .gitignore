@@ -4,9 +4,18 @@
 !CHANGELOG.adoc
 !AGENTS.md
 !LICENSE
+!PassThroughExtensions.sln
 !changelog-details/
 !changelog-details/**
 !src/
 !src/**
+!legacy/
+!legacy/**
 !.github/
 !.github/**
+
+# Never track build / restore outputs even under allow-listed trees
+src/**/bin/
+src/**/obj/
+**/bin/
+**/obj/

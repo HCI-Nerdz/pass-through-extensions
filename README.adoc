@@ -1,6 +1,6 @@
 = pass-through-extensions
 
-Windows helper for *pass-through extensions* — meta-suffixes like `.example` and `.template` that should open as the inner file type.
+Windows app for *pass-through extensions* — meta-suffixes like `.example`, `.template`, and `.old` that should open as the inner file type.
 
 Part of link:https://github.com/HCI-Nerdz[HCI Nerdz].
 
@@ -15,53 +15,51 @@ Explorer resolves type from the *last* extension segment.
 
 Stock Win32 associations have no first-class *passthru* / peel-to-stem kind.
 
-== What this tool does
+== What this app does
 
-. Registers an allow-list of meta-suffixes for the *current user* (`HKCU\Software\Classes`)
-. Points them at a tiny open broker
-. On double-click, the broker peels allow-listed badges, looks up the inner association (`AssocQueryString`), and launches that command with the *real* path
+. Settings UI (`PassThrough.App`) — enable/disable, toggle built-in meta-types, **add your own**
+. Persists `%LOCALAPPDATA%\HCI-Nerdz\pass-through-extensions\settings.json`
+. Registers active suffixes for the *current user* (`HKCU\Software\Classes`)
+. Open broker (`PassThrough.Broker.exe`) peels allow-listed badges, looks up the inner association, launches it with the *real* path
 
-Suffixes (default):
+Built-in suffixes:
 
 `example`, `template`, `tmpl`, `sample`, `dist`, `default`, `skeleton`, `stub`, `orig`, `bak`, `old`
 
-Compression tails (`.gz`, …) are *not* peeled.
+Compression tails (`.gz`, …) are refused even if someone tries to add them as custom.
 
-== Install (current user, no admin)
+== Build and run
 
-[source,powershell]
-----
-cd src
-pwsh -NoProfile -ExecutionPolicy Bypass -File .\Install-PassThrough.ps1
-----
-
-Uninstall:
+Requires .NET 9 SDK.
 
 [source,powershell]
 ----
-pwsh -NoProfile -ExecutionPolicy Bypass -File .\Uninstall-PassThrough.ps1
+dotnet build PassThroughExtensions.sln -c Release
+dotnet test PassThroughExtensions.sln -c Release
+start src\PassThrough.App\bin\Release\net9.0-windows\PassThrough.App.exe
 ----
 
-Scripts copy into `%LOCALAPPDATA%\HCI-Nerdz\pass-through-extensions`.
+In the app: add any custom meta-types you need → *Apply to Explorer*.
+*Remove from Explorer* clears the HKCU mappings.
+
+== Legacy PowerShell
+
+The original script installer lives under `legacy/` for reference.
+Prefer the WPF app + broker.
 
 == Limits
 
-* Icon inheritance still needs a real shell extension or OS support — we use a generic document icon
-* Apps that refuse `*.json.example` in their own Open dialogs are a separate honesty bug
+* Icon / preview / Type-column inheritance still needs a shell extension or OS support
+* App Open dialogs that filter by extension are a separate honesty bug
+* Current-user only (no admin); machine-wide would be the same mapping under `HKLM` plus policy
 * If no inner association exists, the broker falls back to Notepad
-* User-level mappings override machine defaults for those meta-suffixes while installed
 
-== Ask Microsoft
+== PowerToys / Microsoft
 
-Feedback Hub (Win + F) → *Apps* → *File Explorer* (or *Developer Platform*):
+This is a natural PowerToys File Explorer add-on: configurable meta-suffix list + open peel (icons later).
+See the issue filed against `microsoft/PowerToys` from this work.
 
-____
-Add a pass-through / meta-suffix association kind.
-ProgIDs for `.example`, `.template`, `.dist`, etc. should peel and resolve open, edit, and DefaultIcon from the remaining stem, while passing the real path to the handler.
-`appsettings.json.example` must open as JSON, not as an unknown EXAMPLE file.
-____
-
-Link this repo and the HCI Nerdz docs from the report so the allow-list and peel rules are concrete.
+Feedback Hub (Win + F) remains the right place for a *first-class OS passthru association kind* (open + icon + preview + common dialogs).
 
 == License
 
