@@ -1,21 +1,44 @@
+ifndef::env-github[:icons: font]
+:toc: preamble
+:toclevels: 2
+:sectanchors:
+
+ifndef::env-github[]
+image:https://img.shields.io/github/contributors/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Contributors,link=https://github.com/HCI-Nerdz/pass-through-extensions/graphs/contributors]
+image:https://img.shields.io/github/forks/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Forks,link=https://github.com/HCI-Nerdz/pass-through-extensions/network/members]
+image:https://img.shields.io/github/stars/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Stars,link=https://github.com/HCI-Nerdz/pass-through-extensions/stargazers]
+image:https://img.shields.io/github/issues/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Issues,link=https://github.com/HCI-Nerdz/pass-through-extensions/issues]
+image:https://img.shields.io/github/license/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[License,link=https://github.com/HCI-Nerdz/pass-through-extensions/blob/main/LICENSE]
+endif::[]
+
+ifdef::env-github[]
+image:https://img.shields.io/github/contributors/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Contributors]
+image:https://img.shields.io/github/forks/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Forks]
+image:https://img.shields.io/github/stars/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Stars]
+image:https://img.shields.io/github/issues/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Issues]
+image:https://img.shields.io/github/license/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[License]
+endif::[]
+
 = pass-through-extensions
 
-Windows app for *pass-through extensions* — meta-suffixes like `.example`, `.template`, and `.old` that should open as the inner file type.
+Windows helper: peel `.example`/`.template` meta-suffixes and open as the inner file type.
+
+link:https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html[Explore the docs] ·
+link:https://hci-nerdz.github.io/demos/pass-through-extensions/[Try the demo] ·
+link:https://github.com/HCI-Nerdz/pass-through-extensions/issues[Report Bug]
 
 Part of link:https://github.com/HCI-Nerdz[HCI Nerdz].
 
 * Essay: link:https://hci-nerdz.github.io/blog/when-example-files-lose-their-type/[When example files lose their type]
-* Docs: link:https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html[Pass-through extensions]
-* Demo: link:https://hci-nerdz.github.io/demos/pass-through-extensions/[Pass-through peel]
 
-== Problem
+== About The Project
 
 Explorer resolves type from the *last* extension segment.
 `appsettings.json.example` becomes an inert `.example` file instead of JSON with a badge.
 
 Stock Win32 associations have no first-class *passthru* / peel-to-stem kind.
 
-== What this app does
+=== What this app does
 
 . Settings UI (`PassThrough.App`) — enable/disable, toggle built-in meta-types, **add your own**
 . Persists `%LOCALAPPDATA%\HCI-Nerdz\pass-through-extensions\settings.json`
@@ -28,7 +51,7 @@ Built-in suffixes:
 
 Compression tails (`.gz`, …) are refused even if someone tries to add them as custom.
 
-== Build and run
+== Installation
 
 Requires .NET 9 SDK.
 
@@ -39,22 +62,24 @@ dotnet test PassThroughExtensions.sln -c Release
 start src\PassThrough.App\bin\Release\net9.0-windows\PassThrough.App.exe
 ----
 
+== Usage
+
 In the app: add any custom meta-types you need → *Apply to Explorer*.
 *Remove from Explorer* clears the HKCU mappings.
 
-== Legacy PowerShell
+=== Legacy PowerShell
 
 The original script installer lives under `legacy/` for reference.
 Prefer the WPF app + broker.
 
-== Limits
+=== Limits
 
 * Icon / preview / Type-column inheritance still needs a shell extension or OS support
 * App Open dialogs that filter by extension are a separate honesty bug
 * Current-user only (no admin); machine-wide would be the same mapping under `HKLM` plus policy
 * If no inner association exists, the broker falls back to Notepad
 
-== PowerToys / Microsoft
+=== PowerToys / Microsoft
 
 This is a natural PowerToys File Explorer add-on: configurable meta-suffix list + open peel (icons later).
 Filed: link:https://github.com/microsoft/PowerToys/issues/49631[microsoft/PowerToys#49631].
@@ -64,3 +89,10 @@ Feedback Hub (Win + F) remains the right place for a *first-class OS passthru as
 == License
 
 MIT — see link:LICENSE[LICENSE].
+
+== Contact
+
+HCI Nerdz — [ORG_EMAIL]
+
+* Project: https://github.com/HCI-Nerdz/pass-through-extensions
+* Site: https://hci-nerdz.github.io
