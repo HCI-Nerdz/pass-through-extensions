@@ -3,21 +3,12 @@ ifndef::env-github[:icons: font]
 :toclevels: 2
 :sectanchors:
 
-ifndef::env-github[]
+[[readme-top]]
 image:https://img.shields.io/github/contributors/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Contributors,link=https://github.com/HCI-Nerdz/pass-through-extensions/graphs/contributors]
 image:https://img.shields.io/github/forks/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Forks,link=https://github.com/HCI-Nerdz/pass-through-extensions/network/members]
 image:https://img.shields.io/github/stars/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Stars,link=https://github.com/HCI-Nerdz/pass-through-extensions/stargazers]
 image:https://img.shields.io/github/issues/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Issues,link=https://github.com/HCI-Nerdz/pass-through-extensions/issues]
 image:https://img.shields.io/github/license/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[License,link=https://github.com/HCI-Nerdz/pass-through-extensions/blob/main/LICENSE]
-endif::[]
-
-ifdef::env-github[]
-image:https://img.shields.io/github/contributors/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Contributors]
-image:https://img.shields.io/github/forks/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Forks]
-image:https://img.shields.io/github/stars/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Stars]
-image:https://img.shields.io/github/issues/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Issues]
-image:https://img.shields.io/github/license/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[License]
-endif::[]
 
 = pass-through-extensions
 
@@ -51,6 +42,8 @@ Built-in suffixes:
 
 Compression tails (`.gz`, …) are refused even if someone tries to add them as custom.
 
+link:#readme-top[back to top]
+
 == Installation
 
 Requires .NET 9 SDK.
@@ -61,6 +54,8 @@ dotnet build PassThroughExtensions.sln -c Release
 dotnet test PassThroughExtensions.sln -c Release
 start src\PassThrough.App\bin\Release\net9.0-windows\PassThrough.App.exe
 ----
+
+link:#readme-top[back to top]
 
 == Usage
 
@@ -86,9 +81,13 @@ Filed: link:https://github.com/microsoft/PowerToys/issues/49631[microsoft/PowerT
 
 Feedback Hub (Win + F) remains the right place for a *first-class OS passthru association kind* (open + icon + preview + common dialogs).
 
+link:#readme-top[back to top]
+
 == License
 
 MIT — see link:LICENSE[LICENSE].
+
+link:#readme-top[back to top]
 
 == Contact
 
@@ -96,3 +95,5 @@ HCI Nerdz — [ORG_EMAIL]
 
 * Project: https://github.com/HCI-Nerdz/pass-through-extensions
 * Site: https://hci-nerdz.github.io
+
+link:#readme-top[back to top]
