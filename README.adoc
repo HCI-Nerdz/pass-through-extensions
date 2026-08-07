@@ -3,7 +3,30 @@ ifndef::env-github[:icons: font]
 :toclevels: 2
 :sectanchors:
 
-[[readme-top]]
+ifdef::env-github[]
+++++
+<a id="readme-top"></a>
+<div align="center">
+<a href="https://github.com/HCI-Nerdz/pass-through-extensions/graphs/contributors"><img src="https://img.shields.io/github/contributors/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/HCI-Nerdz/pass-through-extensions/network/members"><img src="https://img.shields.io/github/forks/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/HCI-Nerdz/pass-through-extensions/stargazers"><img src="https://img.shields.io/github/stars/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge" alt="Stars"></a>
+<a href="https://github.com/HCI-Nerdz/pass-through-extensions/issues"><img src="https://img.shields.io/github/issues/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/HCI-Nerdz/pass-through-extensions/blob/main/LICENSE"><img src="https://img.shields.io/github/license/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge" alt="License"></a>
+<br />
+<h3 align="center">pass-through-extensions</h3>
+<p align="center">
+Windows helper: peel `.example`/`.template` meta-suffixes and open as the inner file type.<br /><br />
+<a href="https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html">Explore the docs</a>
+&middot;
+<a href="https://hci-nerdz.github.io/demos/pass-through-extensions/">Try the demo</a>
+&middot;
+<a href="https://github.com/HCI-Nerdz/pass-through-extensions/issues">Report Bug</a>
+</p>
+</div>
+++++
+endif::[]
+
+ifndef::env-github[]
 image:https://img.shields.io/github/contributors/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Contributors,link=https://github.com/HCI-Nerdz/pass-through-extensions/graphs/contributors]
 image:https://img.shields.io/github/forks/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Forks,link=https://github.com/HCI-Nerdz/pass-through-extensions/network/members]
 image:https://img.shields.io/github/stars/HCI-Nerdz/pass-through-extensions.svg?style=for-the-badge[Stars,link=https://github.com/HCI-Nerdz/pass-through-extensions/stargazers]
@@ -14,14 +37,16 @@ image:https://img.shields.io/github/license/HCI-Nerdz/pass-through-extensions.sv
 
 Windows helper: peel `.example`/`.template` meta-suffixes and open as the inner file type.
 
-link:https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html[Explore the docs] ·
-link:https://hci-nerdz.github.io/demos/pass-through-extensions/[Try the demo] ·
+link:https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html[Explore the docs] 
+· 
+link:https://hci-nerdz.github.io/demos/pass-through-extensions/[Try the demo] 
+· 
 link:https://github.com/HCI-Nerdz/pass-through-extensions/issues[Report Bug]
+endif::[]
 
 Part of link:https://github.com/HCI-Nerdz[HCI Nerdz].
 
 * Essay: link:https://hci-nerdz.github.io/blog/when-example-files-lose-their-type/[When example files lose their type]
-
 == About The Project
 
 Explorer resolves type from the *last* extension segment.
@@ -42,7 +67,9 @@ Built-in suffixes:
 
 Compression tails (`.gz`, …) are refused even if someone tries to add them as custom.
 
-link:#readme-top[back to top]
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 
 == Installation
 
@@ -55,7 +82,9 @@ dotnet test PassThroughExtensions.sln -c Release
 start src\PassThrough.App\bin\Release\net9.0-windows\PassThrough.App.exe
 ----
 
-link:#readme-top[back to top]
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 
 == Usage
 
@@ -81,13 +110,17 @@ Filed: link:https://github.com/microsoft/PowerToys/issues/49631[microsoft/PowerT
 
 Feedback Hub (Win + F) remains the right place for a *first-class OS passthru association kind* (open + icon + preview + common dialogs).
 
-link:#readme-top[back to top]
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 
 == License
 
 MIT — see link:LICENSE[LICENSE].
 
-link:#readme-top[back to top]
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
 
 == Contact
 
@@ -96,4 +129,6 @@ HCI Nerdz — [ORG_EMAIL]
 * Project: https://github.com/HCI-Nerdz/pass-through-extensions
 * Site: https://hci-nerdz.github.io
 
-link:#readme-top[back to top]
+++++
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+++++
