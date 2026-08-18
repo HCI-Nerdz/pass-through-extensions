@@ -99,7 +99,7 @@ Prefer the WPF app + broker.
 === Limits
 
 * Icon / preview / Type-column inheritance still needs a shell extension or OS support
-* App Open dialogs that filter by extension are a separate honesty bug
+* App Open dialogs that filter by extension are a separate discoverability bug
 * Current-user only (no admin); machine-wide would be the same mapping under `HKLM` plus policy
 * If no inner association exists, the broker falls back to Notepad
 
