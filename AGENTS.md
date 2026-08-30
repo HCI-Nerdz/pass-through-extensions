@@ -8,4 +8,3 @@
 - `legacy/` — original PowerShell installer (superseded).
 - Docs: https://hci-nerdz.github.io/docs/hci-nerdz/pass-through-extensions.html
 - Demo: https://hci-nerdz.github.io/demos/pass-through-extensions/
-- Machine/env facts: `$CODE_ROOT/MEMORIES.md` only.
