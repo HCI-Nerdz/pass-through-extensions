@@ -19,3 +19,5 @@ src/**/bin/
 src/**/obj/
 **/bin/
 **/obj/
+!/.editorconfig
+!/.gitattributes
